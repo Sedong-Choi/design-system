@@ -1,0 +1,33 @@
+import { Children, forwardRef, ReactElement, isValidElement, cloneElement } from 'react'
+import { use{{capitalize componentName}} } from './use{{capitalize componentName}}';
+
+export interface {{capitalize componentName}}Props {}
+
+export const {{capitalize componentName}} = forwardRef(function {{capitalize componentName}}(props: {{capitalize componentName}}Props, ref) {
+
+  const {
+    ref: domRef,
+    Component,
+    className,
+    children,
+    ...rest
+  } = use{{capitalize componentName}}({ ...props, ref });
+
+  const content = Children.map(children as ReactElement, child => {
+    if (isValidElement(child)) {
+      return cloneElement(child as ReactElement, {
+        className: '{{componentName}}__content'
+      });
+    }
+    return child;
+  });
+  return (
+    <Component
+      className={className} // TODO merge 
+      {...rest}
+      ref={domRef}
+    >
+      {content}
+    </Component>
+  )
+});

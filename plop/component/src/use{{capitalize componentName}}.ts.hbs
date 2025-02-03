@@ -1,0 +1,39 @@
+import {
+  CSSProperties,
+  ReactNode,
+  Ref,
+  useRef
+} from 'react';
+
+import {
+  HTMLAttributes,
+  ElementType
+} from 'react'
+
+export interface Use{{capitalize componentName}}Props extends HTMLAttributes<HTMLElement> {
+  as?: ElementType,
+  ref?: Ref<unknown>,
+}
+export function use{{capitalize componentName}}(props: Use{{capitalize componentName}}Props) {
+  const {
+    as,
+    className,
+    style,
+    ...rest
+  } = props;
+  const Component = as || 'div';
+
+  const domRef = useRef(null);
+
+  const resultStyle: CSSProperties = {
+    ...style,
+  }
+
+  return {
+    Component,
+    ref: domRef,
+    className,
+    style: resultStyle,
+    ...rest,
+  }
+}
