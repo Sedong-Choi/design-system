@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "build:debug": "turbo run build:debug",
+    "preview:web-app": "turbo run preview --filter=web-apps",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "preview-storybook": "turbo preview-storybook"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "^2.4.0"
+  },
+  "name": "sedong-design-system",
+  "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/**/*"
+  ]
+}
