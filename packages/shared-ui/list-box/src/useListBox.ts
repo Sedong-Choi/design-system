@@ -1,6 +1,5 @@
 import {
   CSSProperties,
-  ReactNode,
   Ref,
   useRef
 } from 'react';

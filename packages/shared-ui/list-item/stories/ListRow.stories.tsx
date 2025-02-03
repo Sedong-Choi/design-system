@@ -15,7 +15,7 @@ export const StringRow = {
 };
 
 export const ComponentRow = {
-  render: ({ args }) =>
+  render: ({ args }: { args: any }) =>
     <ListRow {...args}>
       <button onClick={() => alert('click inner button')}>Render with inner Button</button>
     </ListRow>,
@@ -23,7 +23,7 @@ export const ComponentRow = {
 }
 
 export const AnchorRow = {
-  render: ({ args }) =>
+  render: ({ args }: { args: any }) =>
     <ListRow {...args} href="https://google.com" as="a" target="_blank">
       google
     </ListRow>,
