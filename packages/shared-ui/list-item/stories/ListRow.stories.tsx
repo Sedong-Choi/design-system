@@ -17,7 +17,7 @@ export const StringRow = {
 export const ComponentRow = {
   render: ({ args }) =>
     <ListRow {...args}>
-      <button>Render with inner Button</button>
+      <button onClick={() => alert('click inner button')}>Render with inner Button</button>
     </ListRow>,
   name: 'ListRow - component',
 }
