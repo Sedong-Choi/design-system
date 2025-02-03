@@ -10,6 +10,11 @@
 ## packages
 
 - [shared-ui](./packages/shared-ui): apps에서 사용되는 컴포넌트
+## 프로젝트 환경
+
+패키지 매니저: <code>yarn</code>
+
+패키지 매니저 버전: <code>4.6.0</code>
 
 ## 실행방법
 
