@@ -20,11 +20,11 @@ const Base = ({ children }: PropsWithChildren<any>) => {
 }
 export default {
     title: 'Theme/ThemeProvider',
-    component: Base,
     decorators: [(Story) => <ThemeProvider><Story /></ThemeProvider>],
 } as Meta<object>
 
 export const Default = {
+    render: () => <Base />,
     name: 'Default',
 }
 
@@ -84,12 +84,12 @@ const ThemeColor = () => {
 }
 
 export const Colors = {
-    render: (args) => <Base {...args}><ThemeColor /></Base>,
+    render:()=> <ThemeColor/>,
     name: 'Colors',
 }
 
-const RadiusLayout = ()=>{
-    const {layout} = useTheme();
+const RadiusLayout = () => {
+    const { colors, layout } = useTheme();
     return <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -99,7 +99,7 @@ const RadiusLayout = ()=>{
         {
             Object.entries(layout?.radius || {}).map(([key, value]) =>
                 <div key={key} style={{
-                    backgroundColor: 'rgba(0,0,0,0.1)',
+                    backgroundColor: colors.info,
                     padding: '1rem',
                     borderRadius: value,
                     textAlign: 'center'
@@ -108,6 +108,6 @@ const RadiusLayout = ()=>{
     </div>
 }
 export const Radius = {
-    render: (args) => <Base {...args}><RadiusLayout/></Base>,
+    render:()=> <RadiusLayout/>,
     name: 'Radius',
 }
