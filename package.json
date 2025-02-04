@@ -8,7 +8,8 @@
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "preview-storybook": "turbo preview-storybook"
+    "preview-storybook": "turbo preview-storybook",
+    "sb": "turbo run sb --filter=docs"
   },
   "devDependencies": {
     "plop": "^4.0.1",

@@ -1,6 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "sb": {
+      "cache": false,
+      "persistent": true
+    },
     "build": {
       "inputs": [
         "$TURBO_DEFAULT$",

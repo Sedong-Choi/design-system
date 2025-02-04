@@ -5,7 +5,9 @@ function getAbsolutePath(value) {
 }
 
 const config = {
-  stories: ["../../../packages/shared-ui/**/*.stories.tsx"],
+  stories: [
+    "../../../packages/**/*.stories.tsx"
+  ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),

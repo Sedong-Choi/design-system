@@ -1209,6 +1209,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@shared/provider@npm:*, @shared/provider@workspace:packages/provider":
+  version: 0.0.0-use.local
+  resolution: "@shared/provider@workspace:packages/provider"
+  dependencies:
+    "@repo/typescript-config": "npm:*"
+    tsup: "npm:^8.3.6"
+    typescript: "npm:^5.7.3"
+  peerDependencies:
+    react: ">=18 || >=19.0.0-rc.0"
+    react-dom: ">=18 || >=19.0.0-rc.0"
+  languageName: unknown
+  linkType: soft
+
 "@storybook/addon-actions@npm:8.5.3, @storybook/addon-actions@npm:^8.2.6":
   version: 8.5.3
   resolution: "@storybook/addon-actions@npm:8.5.3"
@@ -10049,6 +10062,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.17.0"
     "@shared-ui/list-row": "npm:*"
+    "@shared/provider": "npm:*"
     "@types/react": "npm:^18.3.18"
     "@types/react-dom": "npm:^18.3.5"
     "@vitejs/plugin-react": "npm:^4.3.4"
