@@ -29,7 +29,7 @@ export const baseColors: {
     [K in ColorScheme]: BaseColors
 } = {
     dark: {
-        "background": "#121212",
+        "background": "#1F1F1F",
         "foreground": "#E0E0E0",
         "divider": "#373737",
         "overlay": "#1F1F1F",
@@ -69,7 +69,7 @@ export const scaleIndexMap: Record<number, ColorScaleKeys> = {
     9: "900",
 };
 
-export const colors= {
+export const colors = {
     "color-primary-100": "#D1E0FB",
     "color-primary-200": "#A5C0F7",
     "color-primary-300": "#7497E7",
