@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
     }, []);
 
     const value = {
-        ...colorScheme === 'light' ? lightTheme : darkTheme,
+        ...(colorScheme === 'light' ? lightTheme : darkTheme),
         changeTheme: toggleColorScheme
     }
 

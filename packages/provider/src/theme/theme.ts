@@ -1,27 +1,30 @@
-import { colors, scaleIndexMap, type ThemeColor, type ColorScheme, DEFAULT_COLOR_SCALE, DEFAULT_VARIANT, ColorScaleList } from './color';
+import { colors, scaleIndexMap, type ThemeColor, type ColorScheme, DEFAULT_COLOR_SCALE, DEFAULT_VARIANT, ColorScaleKeys, ThemeColors, baseColors, BaseColors } from './color';
 import { defaultLayout, LayoutTheme } from './layout';
 
 export interface Theme {
     colorScheme: ColorScheme;
-    colors: ThemeColor;
+    colors: ThemeColors;
     layout: LayoutTheme;
 }
+const DEFAULT_THEME_COLORS = (colorScheme: ColorScheme): ThemeColors =>
+    ({ ...getThemeColors(colors, DEFAULT_VARIANT, scaleIndexMap[DEFAULT_COLOR_SCALE]), ...baseColors[colorScheme] });
 
 export const darkTheme: Theme = {
     colorScheme: 'dark',
-    colors: getThemeColors('dark', DEFAULT_VARIANT, scaleIndexMap[DEFAULT_COLOR_SCALE]),
+    colors: DEFAULT_THEME_COLORS('dark'),
     layout: { ...defaultLayout }
 }
 
 export const lightTheme: Theme = {
     colorScheme: 'light',
-    colors: getThemeColors('light', DEFAULT_VARIANT, scaleIndexMap[DEFAULT_COLOR_SCALE]),
+    colors: DEFAULT_THEME_COLORS('light'),
     layout: { ...defaultLayout }
 }
 
-function getThemeColors(colorScheme: ColorScheme, variant: typeof DEFAULT_VARIANT, scale: ColorScaleList): ThemeColor {
+function getThemeColors(base: Record<string, string>, variant: typeof DEFAULT_VARIANT, scale: ColorScaleKeys): ThemeColor {
     return variant.reduce((acc, color) => {
-        acc[color] = colors[colorScheme][`${colorScheme}-${color}-${scale}`];
+        const colorKey = `color-${color}-${scale}`;
+        acc[color] = colors[colorKey];
         return acc;
-    }, {} as ThemeColor);
+    }, { ...base } as ThemeColor);
 }
