@@ -84,7 +84,7 @@ const ThemeColor = () => {
 }
 
 export const Colors = {
-    render:()=> <ThemeColor/>,
+    render: () => <ThemeColor />,
     name: 'Colors',
 }
 
@@ -108,6 +108,87 @@ const RadiusLayout = () => {
     </div>
 }
 export const Radius = {
-    render:()=> <RadiusLayout/>,
+    render: () => <RadiusLayout />,
     name: 'Radius',
+}
+
+const BorderWidthLayout = () => {
+    const { colors, layout } = useTheme();
+    return <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '1rem',
+        padding: (layout?.padding?.md || '1rem')
+    }}>
+        {
+            Object.entries(layout?.borderWidth || {}).map(([key, value]) =>
+                <div key={key} style={{
+                    backgroundColor: colors.info,
+                    padding: '1rem',
+                    border: `${value} solid ${colors.success}`,
+                    textAlign: 'center'
+                }}>{key}: {value}</div>)
+        }
+    </div>
+}
+export const BorderWidth = {
+    render: () => <BorderWidthLayout />,
+    name: 'BorderWidth',
+}
+
+const PaddingLayout = () => {
+    const { colors, layout } = useTheme();
+    return <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        padding: (layout?.padding?.md || '1rem')
+    }}>
+        {
+            Object.entries(layout?.padding || {}).map(([key, value]) =>
+                <div key={key} style={{
+                    backgroundColor: colors.success,
+                    padding: value,
+                }}>
+                    <div style={{
+                        backgroundColor: colors.info,
+                        color: colors.background
+                    }}>
+                        {key}: {value}
+                    </div>
+                </div>)
+        }
+    </div>
+}
+export const Padding = {
+    render: () => <PaddingLayout />,
+    name: 'Padding',
+}
+
+const FontSizeLayout = () => {
+    const { colors, layout } = useTheme();
+    return <>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            padding: (layout?.padding?.md || '1rem')
+        }}>
+            {
+                Object.entries(layout?.fontSize || {}).map(([key, value]) =>
+                    <div key={key} style={{
+                        backgroundColor: colors.success,
+                        padding: '1rem',
+                        fontSize: value,
+                    }}>
+                        {key}: {value}
+                    </div>)
+            }
+        </div>
+    </>
+}
+
+export const FontSize = {
+    render: () => <FontSizeLayout />,
+    name: 'FontSize',
 }
